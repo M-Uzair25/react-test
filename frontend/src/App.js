@@ -25,7 +25,7 @@ function App() {
   return (
     <>
       <Router>
-        <Navbar />
+        <Navbar showAlert={showAlert}/>
         <div className="container">
           <Alert alert={alert} />
           <Routes>
