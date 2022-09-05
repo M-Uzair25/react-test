@@ -40,7 +40,8 @@ router.post('/createuser', [
             }
             var authtoken = jwt.sign(data, secret);
             success=true;
-            res.send({success, authtoken })
+            let name = user.name;
+            res.send({success, authtoken, name })
         } catch (error) {
             console.log(error.message);
             res.status(500).send("Internal server error has occured")
@@ -65,7 +66,7 @@ router.post('/login', [
         if (!user) {
             return res.status(400).json({success, error: "Please login using correct credentials" })
         };
-        let passwordCompare = bcrypt.compare(password, user.password);
+        const passwordCompare = await bcrypt.compare(password, user.password);
         if (!passwordCompare) {
             return res.status(400).json({success, error: "Please login using correct credentials" })
         };
