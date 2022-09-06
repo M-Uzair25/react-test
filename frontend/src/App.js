@@ -6,10 +6,10 @@ import {
 } from "react-router-dom";
 import Navbar from './components/Navbar';
 import Alert from './components/Alert';
-import Signup from './components/Signup';
-import Login from './components/Login';
+import Signup from './components/Pages/Signup';
+import Login from './components/Pages/Login';
 import { useState } from 'react';
-import Home from './components/Home';
+import Home from './components/Pages/Home';
 
 function App() {
   const [alert, setAlert] = useState(null);
